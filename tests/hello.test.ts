@@ -1,6 +1,6 @@
-describe('hello', () => {
-    it('should say hello', () => {
-        const name = "Hello Reff"
+describe('hello', ():void => {
+    it('should say hello', ():void => {
+        const name:string = "Hello Reff"
         expect(name).toBe("Hello Reff");
     });
 })
