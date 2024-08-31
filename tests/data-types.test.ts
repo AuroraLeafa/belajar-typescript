@@ -28,6 +28,7 @@ describe('data-types', ():void => {
         const names:ReadonlyArray<string> = ["Revvan", "Reffz"]
         const ages:ReadonlyArray<number> = [20, 21]
         const isMarried:ReadonlyArray<boolean> = [true, false]
+        // Dibawah ini akan error
         names[1] = "Reffan"
         ages[1] = 22
         isMarried[1] = true
