@@ -1,3 +1,4 @@
+import { Employee } from '../src/Employee';
 import { Seller } from './../src/seller_interface';
 
 describe('interface', () => { 
@@ -14,5 +15,49 @@ describe('interface', () => {
         seller.npwp = "0987654321"
         seller.nik = "0987654321"
         console.info(seller)
+    })
+
+    it('Should must support function interface', () => {
+     interface addFunction {
+         (a: number, b: number): number
+     }
+     const add: addFunction = (a, b) => {
+         return a + b
+     }
+     expect(add(1, 2)).toBe(3)
+    })
+
+    it('Should must support indexable interface for number index', () => {
+     interface indexable {
+         [index: number] : string
+     }
+     const array: indexable = ["Reff", "Reffan"]
+     expect(array[0]).toBe("Reff")
+    })
+    
+    it('Should must support indexable interface for string index', () => {
+     interface indexableStr {
+         [key: string]: string
+     }
+     const obj: indexableStr = {
+         name: "Reff",
+         age: "20"
+     }
+     expect(obj["name"]).toBe("Reff")
+    })
+
+    it('Should must support extendable interface', () => {
+    interface Manager extends Employee{
+        total_employeers: number
+    }
+    const manager: Manager = {
+        id: "1",
+        name: "Reff",
+        division: "IT",
+        total_employeers: 10
+    }
+    expect(manager.total_employeers).toBe(10)
+    expect(manager.name).toBe("Reff")
+    expect(manager.division).toBe("IT")
     })
  })
