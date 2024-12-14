@@ -60,4 +60,36 @@ describe('interface', () => {
     expect(manager.name).toBe("Reff")
     expect(manager.division).toBe("IT")
     })
+
+    it('Should must support function interface', () => {
+     interface Person {
+         name: string
+         sayHello(name: string): string
+     }
+
+     const person: Person = {
+         name: "Reff",
+         sayHello: function (name: string):string {
+             return `Hello ${name} , my name is ${this.name}`
+         }
+        }
+        expect(person.sayHello("Reffan")).toBe("Hello Reffan , my name is Reff")
+    })
+
+    it('Should must support intersection types', () => {
+        interface HasId {
+            id: number
+        }
+        interface HasName {
+            name: string
+        }
+        type Domain = HasId & HasName
+        const domain: Domain = {
+            id: 1,
+            name: "Reff"
+        }
+        expect(domain.id).toBe(1)
+        expect(domain.name).toBe("Reff")
+        console.info(domain)
+    })
  })
