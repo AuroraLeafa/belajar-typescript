@@ -1,5 +1,5 @@
 {
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "Dasar/**/*", "OOP/**/*"],
   "exclude": ["node_modules", "dist", "tests/**/*", "src/**/*.test.ts"],
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig to read more about this file */

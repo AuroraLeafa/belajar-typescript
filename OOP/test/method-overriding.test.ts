@@ -5,14 +5,15 @@ describe('Method Overriding', ()=>{
         constructor(name:string){
             this.name = name
         }
-        sayHello(name: string): string {
-            return `Hello ${name}, my name is ${this.name}, im your employee`;
+        sayHello(name: string): void {
+            console.info(`Hello ${name}, my name is ${this.name}, im your employee`);
         }
     }
 
     class Manager extends Employee{
-        sayHello(name: string): string {
-            return `Halo ${name}, nama saya ${this.name}, aku manager mu`
+        sayHello(name: string): void {
+            super.sayHello(name);
+            console.info(`And i'm your Manager`);
         }
     }
 
@@ -21,6 +22,5 @@ describe('Method Overriding', ()=>{
         employee.sayHello("Leafa")
         const manager = new Manager("Leafa")
         manager.sayHello("Aurora")
-        
     })
 })
